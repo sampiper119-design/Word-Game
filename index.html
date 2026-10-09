@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wordblocks — Prototype</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <h1>WORDBLOCKS</h1>
+    <p class="subtitle">Slide letter tiles across the board to spell valid English words, earn high scores,<br> and clear space 
+      before the grid completely fills up.</p>
+  </header>
+
+  <main class="layout">
+
+    <section class="board-panel">
+      <div class="ready-row" aria-live="polite">
+        <span id="readyLabel" class="ready-label">Move a letter to begin.</span>
+      </div>
+
+      <div id="board" class="board"></div>
+    </section>
+
+    <aside class="side-panel">
+      <div class="stat-block">
+        <span class="stat-label">Score</span>
+        <span id="score" class="stat-value">0</span>
+      </div>
+
+      <div class="stat-block">
+        <span class="stat-label">Bomb Power-ups</span>
+        <button id="bombBtn" class="restart-btn bomb-btn">Use Bomb (<span id="bombCount">2</span> left)</button>
+      </div>
+
+      <label class="assist-toggle">
+        <input type="checkbox" id="assistToggle" checked>
+        Show ready word
+      </label>
+
+      <button id="restartBtn" class="restart-btn">Restart</button>
+
+      <div class="log-block">
+        <span class="stat-label">Words cleared</span>
+        <ul id="wordLog" class="word-log"></ul>
+      </div>
+    </aside>
+
+    <ol class="instructions">
+      <li>Arrow Keys / WASD Keys / Swipe to move letters.</li>
+      <li>Press Enter to submit words when highlighted.</li>
+      <li>When stuck, click bomb power-up button and select a letter to detonate a 2x2 grid.</li>
+      <li>Toggle on and off "Show Ready Word" to enable/disable highlight.</li>
+      <li>Wildcard(?) spawns randomly on the grid. When part of a valid word, click the tile<br> directly to choose 
+        any letter to complete your word.</li>
+      <li>Rare double-letter tiles (like EE, OO, TT) help build longer, higher-scoring<br> words quickly.</li>
+      <li>Rare letters (Q, Z, X, J, K, V) grant a 2x Score Multiplier to the word.</li>
+      <li>Forming a horizontal and vertical word that intersect triggers a Cross Multiplier<br> that doubles the 
+        combined score of both words.</li>
+      <li>Back-to-back Cross matches increases your Combo Multiplier (2x, 4x, etc.).</li>
+      <li>A designated row or column becomes a "Hot Zone" every 5 moves. Clearing a word<br> containing a tile inside 
+        the Hot Zone awards 2x Bonus Points.</li>
+    </ol>
+
+  </main>
+
+  <div id="gameOverOverlay" class="overlay hidden">
+    <div class="overlay-card">
+      <h2>Board full</h2>
+      <p>No valid moves left. Running the final sweep&hellip;</p>
+      <div id="sweepResults" class="sweep-results"></div>
+      <p class="final-score">Final score: <span id="finalScore">0</span></p>
+      <button id="playAgainBtn" class="restart-btn">Play again</button>
+    </div>
+  </div>
+
+  <script src="words.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
