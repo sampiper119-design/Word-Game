@@ -1,0 +1,28 @@
+# Dependency directories
+# (In case you use npm packages or live-server extensions later)
+node_modules/
+jspm_packages/
+web_modules/
+
+# Development & Environment Secrets 
+# (Crucial: Keeps your private API keys and config hidden)
+.env
+.env.local
+.env.*.local
+*.env
+
+# IDE / Editor specific files
+# (Keeps your personal VS Code window settings out of your repo)
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Operating System files
+# (System-generated thumbnail caches)
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
